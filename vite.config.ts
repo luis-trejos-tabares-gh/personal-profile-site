@@ -15,7 +15,11 @@ const config = defineConfig({
     tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
     tanstackStart(),
-    nitro(),
+    nitro({
+      // Vercel sets VERCEL=1. Without this, Nitro can emit a Node server
+      // that Vercel then treats as static files.
+      preset: process.env.VERCEL ? 'vercel' : 'node-server',
+    }),
     viteReact(),
   ],
 })
