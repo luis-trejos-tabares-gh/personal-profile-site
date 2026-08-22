@@ -1,5 +1,13 @@
 import { profile } from '../../data/profile'
 
+function githubHandle(url: string) {
+  try {
+    return `@${new URL(url).pathname.replaceAll('/', '')}`
+  } catch {
+    return url
+  }
+}
+
 export default function Contact() {
   const { email, phone, github, linkedin, cvUrl } = profile.contact
 
@@ -11,11 +19,16 @@ export default function Contact() {
           Contact
         </h2>
         <p className="mb-10 max-w-lg text-(--sea-ink-soft)">
-          Whether you have a project in mind, a question, or just want to connect — feel free to reach out!.
+          Whether you have a project in mind, a question, or just want to connect — feel free to reach out.
         </p>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Email */}
+        <div
+          className={
+            cvUrl
+              ? 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4'
+              : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3'
+          }
+        >
           <a href={`mailto:${email}`} className="island-shell group flex flex-col gap-3 rounded-2xl p-6 no-underline transition hover:-translate-y-1 hover:border-(--lagoon)">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[rgba(124,106,247,0.2)] to-[rgba(245,158,11,0.14)] text-(--lagoon-deep) transition group-hover:from-[rgba(124,106,247,0.3)]">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -26,7 +39,6 @@ export default function Contact() {
             <span className="break-all text-sm font-semibold text-(--sea-ink)">{email}</span>
           </a>
 
-          {/* Phone */}
           <a href={`tel:${phone.replace(/\s/g, '')}`} className="island-shell group flex flex-col gap-3 rounded-2xl p-6 no-underline transition hover:-translate-y-1 hover:border-(--lagoon)">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[rgba(124,106,247,0.2)] to-[rgba(245,158,11,0.14)] text-(--lagoon-deep) transition group-hover:from-[rgba(124,106,247,0.3)]">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -37,7 +49,6 @@ export default function Contact() {
             <span className="text-sm font-semibold text-(--sea-ink)">{phone}</span>
           </a>
 
-          {/* GitHub */}
           <a href={github} target="_blank" rel="noopener noreferrer" className="island-shell group flex flex-col gap-3 rounded-2xl p-6 no-underline transition hover:-translate-y-1 hover:border-(--lagoon)">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[rgba(124,106,247,0.2)] to-[rgba(245,158,11,0.14)] text-(--lagoon-deep) transition group-hover:from-[rgba(124,106,247,0.3)]">
               <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20" aria-hidden="true">
@@ -45,22 +56,22 @@ export default function Contact() {
               </svg>
             </span>
             <p className="island-kicker m-0">GitHub</p>
-            <span className="text-sm font-semibold text-(--sea-ink)">@luis-trejos-tabares-gh</span>
+            <span className="text-sm font-semibold text-(--sea-ink)">{githubHandle(github)}</span>
           </a>
 
-          {/* Download CV */}
-          <a href={cvUrl} download className="island-shell group flex flex-col gap-3 rounded-2xl p-6 no-underline transition hover:-translate-y-1 hover:border-(--lagoon)">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[rgba(124,106,247,0.2)] to-[rgba(245,158,11,0.14)] text-(--lagoon-deep) transition group-hover:from-[rgba(124,106,247,0.3)]">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M10 3v10M10 13l-3.5-3.5M10 13l3.5-3.5M4 17h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
-            <p className="island-kicker m-0">Résumé</p>
-            <span className="text-sm font-semibold text-(--sea-ink)">Download CV</span>
-          </a>
+          {cvUrl ? (
+            <a href={cvUrl} download className="island-shell group flex flex-col gap-3 rounded-2xl p-6 no-underline transition hover:-translate-y-1 hover:border-(--lagoon)">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[rgba(124,106,247,0.2)] to-[rgba(245,158,11,0.14)] text-(--lagoon-deep) transition group-hover:from-[rgba(124,106,247,0.3)]">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3v10M10 13l-3.5-3.5M10 13l3.5-3.5M4 17h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <p className="island-kicker m-0">Résumé</p>
+              <span className="text-sm font-semibold text-(--sea-ink)">Download CV</span>
+            </a>
+          ) : null}
         </div>
 
-        {/* LinkedIn CTA */}
         <div className="mt-8 flex justify-center">
           <a
             href={linkedin}

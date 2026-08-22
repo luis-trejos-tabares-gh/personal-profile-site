@@ -1,11 +1,6 @@
 import { profile } from '../../data/profile'
 
-const PRACTICES_CATEGORY = 'Practices & Methods'
-
 export default function Skills() {
-  const techSkills = profile.skills.filter((s) => s.category !== PRACTICES_CATEGORY)
-  const practices = profile.skills.find((s) => s.category === PRACTICES_CATEGORY)
-
   return (
     <section id="skills" className="px-4 py-14">
       <div className="page-wrap">
@@ -14,9 +9,8 @@ export default function Skills() {
           Tech Skills
         </h2>
 
-        {/* Tech skill cards — 3-column grid for 2 balanced rows */}
         <div className="mb-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {techSkills.map(({ category, items }) => (
+          {profile.skills.map(({ category, items }) => (
             <div
               key={category}
               className="island-shell group rounded-2xl p-6 transition hover:-translate-y-1"

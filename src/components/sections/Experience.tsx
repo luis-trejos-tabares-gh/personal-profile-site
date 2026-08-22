@@ -20,6 +20,11 @@ export default function Experience() {
                     <span className="rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-0.5 text-xs font-semibold text-(--lagoon-deep)">
                       {job.period}
                     </span>
+                    {'engagement' in job && job.engagement ? (
+                      <span className="rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-0.5 text-xs font-semibold text-(--sea-ink-soft)">
+                        {job.engagement}
+                      </span>
+                    ) : null}
                   </div>
                   <h3 className="mb-0.5 text-lg font-bold text-(--sea-ink)">{job.role}</h3>
                   <p className="mb-3 text-sm font-semibold text-(--lagoon-deep)">{job.company}</p>

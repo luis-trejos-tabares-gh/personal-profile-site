@@ -1,34 +1,34 @@
+import { Link } from '@tanstack/react-router'
 import ThemeToggle from './ThemeToggle'
 import { profile } from '../data/profile'
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: 'Home', hash: 'home' },
+  { label: 'Experience', hash: 'experience' },
+  { label: 'Skills', hash: 'skills' },
+  { label: 'Projects', hash: 'projects' },
+  { label: 'Contact', hash: 'contact' },
+] as const
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-(--line) bg-(--header-bg) px-4 backdrop-blur-lg">
       <nav className="page-wrap flex flex-wrap items-center gap-x-3 gap-y-2 py-3 sm:py-4">
-        {/* Logo */}
-        {/* <a
-          href="#home"
-          className="inline-flex items-center gap-2 rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-1.5 text-sm font-semibold text-(--sea-ink) no-underline shadow-[0_4px_16px_rgba(124,106,247,0.1)] transition hover:border-(--lagoon) sm:px-4 sm:py-2"
+        <Link
+          to="/"
+          hash="home"
+          className="inline-flex items-center gap-2 rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-1.5 text-sm font-semibold text-(--sea-ink) no-underline transition hover:border-(--lagoon) sm:px-4 sm:py-2"
         >
-          <span className="h-2 w-2 rounded-full bg-linear-to-r from-(--lagoon) to-[#a99cff]" />
+          <span className="h-2 w-2 rounded-full bg-linear-to-r from-(--lagoon) to-(--lagoon-deep)" />
           {profile.name}
-        </a> */}
+        </Link>
 
-        {/* Social icons + theme toggle */}
-        <div className="ml-auto flex items-center gap-1.5 sm:ml-0 sm:gap-2">
+        <div className="ml-auto flex items-center gap-1.5 sm:order-3 sm:gap-2">
           <a
             href={profile.contact.github}
             target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink) sm:block"
+            rel="noopener noreferrer"
+            className="rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink)"
           >
             <span className="sr-only">GitHub</span>
             <svg viewBox="0 0 16 16" aria-hidden="true" width="22" height="22" fill="currentColor">
@@ -38,8 +38,8 @@ export default function Header() {
           <a
             href={profile.contact.linkedin}
             target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink) sm:block"
+            rel="noopener noreferrer"
+            className="rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink)"
           >
             <span className="sr-only">LinkedIn</span>
             <svg viewBox="0 0 16 16" aria-hidden="true" width="22" height="22" fill="currentColor">
@@ -49,12 +49,11 @@ export default function Header() {
           <ThemeToggle />
         </div>
 
-        {/* Nav links */}
         <div className="order-3 flex w-full flex-wrap items-center gap-x-4 gap-y-1 pb-1 text-sm font-semibold sm:order-2 sm:w-auto sm:flex-nowrap sm:pb-0">
-          {navLinks.map(({ label, href }) => (
-            <a key={href} href={href} className="nav-link">
+          {navLinks.map(({ label, hash }) => (
+            <Link key={hash} to="/" hash={hash} className="nav-link">
               {label}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>

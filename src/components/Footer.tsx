@@ -15,7 +15,7 @@ export default function Footer() {
         <a
           href={profile.contact.github}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink)"
         >
           <span className="sr-only">GitHub</span>
@@ -26,7 +26,7 @@ export default function Footer() {
         <a
           href={profile.contact.linkedin}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="rounded-xl p-2 text-(--sea-ink-soft) transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink)"
         >
           <span className="sr-only">LinkedIn</span>
