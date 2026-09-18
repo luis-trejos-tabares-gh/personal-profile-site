@@ -168,6 +168,30 @@ export const profile = {
     },
   ],
 
+  portfolio: [
+    {
+      slug: 'ats-genie',
+      name: 'ATS Genie',
+      description:
+        'A one-session tool to analyze or assemble a resume so applicant tracking systems can parse it. Nothing is stored. There are no accounts.',
+      achievements: [
+        'Analyze a PDF/DOCX or assemble sections in plain text, then download DOCX or PDF.',
+        'Rewrites via GPT-OSS 120B on Groq, with 3 AI checks per IP per hour.',
+        'Request-scoped processing only — no database and no resume logs.',
+      ],
+      whatItDoes: [
+        'Landing — what the tool is, how it works, and the privacy terms up front.',
+        'Analyze — upload a PDF or DOCX, get guided issues, download DOCX or PDF.',
+        'Assemble — write each section in plain text, get an ATS-structured recommendation, download.',
+      ],
+      privacy:
+        'No database, no resume logs, and no localStorage of CV bodies. Files are processed in the request and discarded. Closing the tab ends the session.',
+      tech: ['Next.js', 'FastAPI', 'Groq', 'Tailwind CSS', 'Vercel', 'Render'],
+      url: 'https://github.com/luis-trejos-tabares-gh/ats-genie',
+      live: 'https://ats-genie.vercel.app',
+    },
+  ],
+
   projects: [
     {
       slug: 'poultry-management-system',

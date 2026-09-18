@@ -64,10 +64,10 @@ export default function Hero() {
                 Get in touch
               </a>
               <a
-                href="#projects"
+                href="#portfolio"
                 className="rounded-full border border-(--line) bg-(--surface) px-7 py-3 text-sm font-semibold text-(--sea-ink) no-underline backdrop-blur transition hover:-translate-y-0.5 hover:border-(--lagoon)"
               >
-                View projects
+                View portfolio
               </a>
             </div>
           </div>

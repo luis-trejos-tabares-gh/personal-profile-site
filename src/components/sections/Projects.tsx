@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section id="projects" className="px-4 py-14">
       <div className="page-wrap">
-        <p className="island-kicker mb-2">What I've built</p>
+        <p className="island-kicker mb-2">Selected work</p>
         <h2 className="display-title mb-8 text-4xl font-bold text-(--sea-ink)">
           Projects
         </h2>
