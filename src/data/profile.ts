@@ -190,6 +190,27 @@ export const profile = {
       url: 'https://github.com/luis-trejos-tabares-gh/ats-genie',
       live: 'https://ats-genie.vercel.app',
     },
+    {
+      slug: 'shelf-music-manager',
+      name: 'Shelf Music Manager',
+      description:
+        'Site to manage music (artists, albums, songs and playlists) as shelves to group these collections. Made for those like me who enjoy grouping their music is such way.',
+      achievements: [
+        'Search any artist, album or song respecting API limits.',
+        'Groups things in a very simple and efficient way like no streaming platform does.',
+        'Integrates with setlist.fm. for concert information on your favorite artists',
+      ],
+      whatItDoes: [
+        'Create collections of artists, albums or songs to cleanly group your own music.',       
+        'Visualize their most recent shows using setlist.fm.',       
+        'This is NOT a streaming platform, this is just a way to organize music.',       
+      ],
+      privacy:
+        'User-based authentication through Supabase RLS.',
+      tech: ['Next.js', 'Tailwind CSS', 'Vercel', 'Setlist.fm API', 'MusicBrainz API', 'Supabase'],
+      url: 'https://github.com/luis-trejos-tabares-gh/shelf-music-manager',
+      live: 'https://shelf-music-manager.vercel.app/',
+    },
   ],
 
   projects: [
